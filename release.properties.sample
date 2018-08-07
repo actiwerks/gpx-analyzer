@@ -1,0 +1,9 @@
+// Fill in the following with your actual values and rename the file to release.properties
+
+keyStore=release.keystore
+
+keyStorePassword=mysecretpassword
+
+keyAlias=myapp-release
+
+keyAliasPassword=mysecretpassword
