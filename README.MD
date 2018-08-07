@@ -33,4 +33,4 @@ please use the application on the device that has external storage in write mode
 
 ## Feedback
 
-Please send your comments or questions to [the author](mailto:/pavel@actiwerks.com)
+Please send your comments or questions to [the author](mailto:pavel@actiwerks.com)
