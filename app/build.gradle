@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "gpx.actiwerks.gpxanalyzer"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+
+        release
+
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            //add here your logic to customize the name of the apk
+            outputFileName = "${variant.name}-${variant.versionName}.apk"
+            //outputFileName = "app-debug.apk"
+        }
+        variant.assemble.doLast { assemble ->
+            //copy the apk in another directory, add here your
+            //logic to customize the destination folder
+            copy {
+                from variant.outputs*.outputFile
+                into "${projectDir}/../bin/"
+                println("Copied to bin now")
+            }
+            //if you don't want to delete the file after copying it comment the line below
+            delete variant.outputs*.outputFile
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'org.osmdroid:osmdroid-android:6.0.2'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'joda-time:joda-time:2.10'
+    implementation 'com.codebutchery.android:gpx_lib:1.0.3'
+}
+
+def props = new Properties()
+props.load(new FileInputStream(rootProject.file("release.properties")))
+android.signingConfigs.release.storeFile rootProject.file(props.keyStore)
+android.signingConfigs.release.storePassword props.keyStorePassword
+android.signingConfigs.release.keyAlias props.keyAlias
+android.signingConfigs.release.keyPassword props.keyAliasPassword
+
+
