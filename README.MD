@@ -25,6 +25,7 @@ For Distance and Bearing calculations, [the haversine formula](https://en.wikipe
 All the lists are kept in the memory, and looped sequentially, which is satisfactory from both memory and performance
 point of views with intended usage of low thousands of points in the analyzed GPX files. The application works reasonably
 well on the mid-range Android Lollipop device.
+The application is simplified in several aspects, most notably the strings are hard-coded and thus in English only. While the logic is able to recover reasonably from most of possible error states and report them correctly to the user, there are missing tests to cover the functionality.
 
 ## Troubleshooting
 
