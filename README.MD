@@ -1,6 +1,6 @@
 # GPX Analyzer for Android
 
-## Building and installation
+## Building and Installation
 
 GPX Analyzer uses standard Android Studio project structure. Targeting Lollipop (API 21 and higher).
 Build.gradle file contains a list of dependencies, alter this list to adjust the linked libraries versions.
@@ -10,7 +10,7 @@ There is a pre-built APK in the /bin folder which is signed and ready to be inst
 of the APK, but you need first create your own release.properties file and provide path to the Keystore file
 containing the Signing Certificate. Use the release.properties.sample file as template.
 
-## Usage
+## Usage
 
 When application is started, default blank map is shown. Select a track to analyze by using the ActionBar menu
 option "Select". The Selection Activity appears, which requires network connection to be present.
@@ -31,6 +31,6 @@ well on the mid-range Android Lollipop device.
 On certain devices the map might fail to show the background tiles. This is caused by the External storage being mountend as read only,
 please use the application on the device that has external storage in write mode.
 
-## Feedback
+## Feedback
 
 Please send your comments or questions to [the author](mailto:pavel@actiwerks.com)
