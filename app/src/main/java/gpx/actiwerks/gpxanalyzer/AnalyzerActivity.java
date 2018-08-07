@@ -2,9 +2,11 @@ package gpx.actiwerks.gpxanalyzer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import org.osmdroid.views.MapView;
 
 public class AnalyzerActivity extends AppCompatActivity {
+
+    private static final String TAG = AnalyzerActivity.class.getSimpleName();
 
     private static final int SELECT_ID = 1111;
 
@@ -25,6 +29,7 @@ public class AnalyzerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i (TAG, "External storage :" + Environment.getExternalStorageDirectory() + " state: " + Environment.getExternalStorageState());
         setContentView(R.layout.activity_analyzer);
         map = new MapWrapper(this, (MapView) findViewById(R.id.map));
         infoText = findViewById(R.id.info);
