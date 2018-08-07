@@ -13,8 +13,6 @@ import org.osmdroid.views.MapView;
 
 public class AnalyzerActivity extends AppCompatActivity {
 
-    private static final String TAG = AnalyzerActivity.class.getSimpleName();
-
     private static final int SELECT_ID = 1111;
 
     private MapWrapper map = null;
